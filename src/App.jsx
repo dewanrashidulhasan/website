@@ -14,9 +14,13 @@ import Navbar from './components/navbar'
 
 const App = () => {
   return (
-    <div className='px-4 sm:px-0 md:px-0 lg:px-0'>
+    <div>
+      <div className="mb-4">
      <Navbar/>
+     </div>
+     <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
      <Home/>
+     </div>
       <Routes>
       <Route path='/'element={<Home/>} />
       <Route path='/collection' element={<Collection/>} />
