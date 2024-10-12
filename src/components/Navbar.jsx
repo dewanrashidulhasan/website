@@ -53,8 +53,10 @@ const Navbar = () => {
           )}
         </div>
         <Link to='/cart' className='relative'>
-          <img src={assets.cart_icon} className='w-5 min-w-5' alt="" />
+          <img src={assets.cart_icon} className='w-5 min-w-5 pt-4' alt="" />
+          <p className='absoiute right-[-5px] bottom-[-5px] w-4 text-center leading-2 bg-red-600 text-white aspect-squre rounded-full text-[8px] '>10</p>
         </Link>
+        
       </div>
     </div>
   );
