@@ -15,3 +15,14 @@ a.active hr{
     font-style: normal;
   }
   
+  .nao {
+    
+        position: fixed;
+        top: 0;
+        
+        
+        z-index: 1000; 
+  }
+  .ho {
+    padding-top: 70px;
+  }
