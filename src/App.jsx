@@ -20,11 +20,12 @@ const App = () => {
       <div className="mb-4">
      <Navbar/>
      </div>
-     <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
+     {/* <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
      <Home/>
-     </div>
-      <Routes>
-      {/* <Route path='/home' element={<Home/>} /> */}
+     </div> */}
+     <div className='px-3 sm:px-[5vw] md:px-[4vw] lg:px-[6vw]'>
+      <Routes >
+       <Route path='/home' element={<Home/>} /> 
       <Route path='/collection' element={<Collection/>} />
       <Route path='/about' element={<About/>} />
       <Route path='/contact' element={<Contact/>} />
@@ -35,6 +36,7 @@ const App = () => {
       <Route path='/orders' element={<Orders/>} />
 
       </Routes>
+      </div>
       <Footer/>
     </div>
   )
