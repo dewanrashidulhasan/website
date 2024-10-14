@@ -7,6 +7,7 @@ const Product = () => {
     const { products } = useContext(ShopContext);
     const [images, setImages] = useState([]); // Store multiple images
     const [foundProduct, setFoundProduct] = useState(null); // Store the found product
+    const [image, setImage] = useState(''); // Store selected image
 
     useEffect(() => {
         const fetchProductData = () => {
@@ -14,6 +15,7 @@ const Product = () => {
             if (product) {
                 console.log(product);
                 setImages(product.image); // Set all images
+                setImage(product.image[0]); // Set the first image as the selected image
                 setFoundProduct(product); // Store the found product
                 console.log(product); // Log the found product
             } else {
@@ -25,24 +27,40 @@ const Product = () => {
     }, [products, productId]); // Add dependencies to avoid infinite loops
 
     return foundProduct ? (
-        <div className='border-t-2 pt-10 transition-opacity ease-in duration-500 opacity-100'>
-          {/* product data */}
+        <div className='paoo'>
+          <div className='border-t-2 pt-10 transition-opacity ease-in duration-500 opacity-100'>
+          {/* ------product data------- */}
           <div className='flex gap-12 sm:gap-12 flex-col sm:flex-row'>
-            {/* products images */}
+            {/* ----------products images---------- */}
             <div className='flex-1 flex flex-col-reverse gap-3 sm:flex-row'>
               <div className='flex sm:flex-col overflow-x-auto sm:overflow-y-scroll justify-between sm:justify-normal sm:w-[18.7%] w-full'>
                 {/* Map over images to display all of them */}
                 <div className="flex flex-wrap gap-4"> {/* Added gap-4 for spacing between images */}
                   {images.map((img, index) => (
-                    <img key={index} src={img} alt={`Image ${index + 1}`} className="w-full sm:w-auto" />
+                    <img 
+                      key={index} 
+                      src={img} 
+                      alt={`Image ${index + 1}`} 
+                      className="w-full sm:w-auto cursor-pointer" 
+                      onClick={() => setImage(img)} // Set clicked image
+                    />
                   ))}
                 </div>
               </div>
+              <div className='w-full sm:w-[80%]'>
+                <img className='w-full h-auto' src={image} alt="Selected Product" />
+              </div>
+            </div>
+
+            {/* ----------product info---------- */}
+            <div className='flex-1'>
+              <h1 className='font-medium tex-2xl mt-2'>{foundProduct.name}</h1> {/* Corrected here */}
             </div>
           </div>
         </div>
+        </div>
     ) : (
-        <div className='opacity-0'></div>
+        <div className='opacity-0 paoo'></div>
     );
 };
 
