@@ -1,19 +1,30 @@
+
 import { createContext, useState } from "react";
 import { products } from "../assets/assets";
+
 export const ShopContext = createContext();
-  
-const ShopContextProvider = (props) =>{
+
+const ShopContextProvider = (props) => {
     const currency = '$';
-    const delevery_fee = 10;
+    const delivery_fee = 10; // Spelling corrected from 'delevery_fee' to 'delivery_fee'
     const [search, setSearch] = useState('');
-    const [showSearch, setShowSearch] = useState(true);
-    const value ={
-       products, currency, delevery_fee, search, setSearch, showSearch, setShowSearch
-    }
-return (
-       <ShopContext.Provider value={value}>
-        {props.children}
-       </ShopContext.Provider>
-)
-}
+    const [showSearch, setShowSearch] = useState(false); // Default false to hide the search bar
+
+    const value = {
+        products,
+        currency,
+        delivery_fee,
+        search,
+        setSearch,
+        showSearch,
+        setShowSearch
+    };
+
+    return (
+        <ShopContext.Provider value={value}>
+            {props.children}
+        </ShopContext.Provider>
+    );
+};
+
 export default ShopContextProvider;
