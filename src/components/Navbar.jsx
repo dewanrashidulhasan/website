@@ -13,7 +13,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className='flex nao item-center justify-between py-4 font-medium bg-slate-500 w-full'>
+    <div className='flex nao item-center justify-between py-4 font-medium bg-slate-500 w-full pr-4'>
       <Link to='/home'>
         <img src={assets.logo} className='w-46 h-10' alt="logo" />
       </Link>

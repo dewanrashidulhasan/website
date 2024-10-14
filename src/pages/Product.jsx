@@ -9,11 +9,13 @@ const Product = () => {
     const [images, setImages] = useState([]); // Store multiple images
     const [foundProduct, setFoundProduct] = useState(null); // Store the found product
     const [image, setImage] = useState(''); // Store selected image
+    const [selectedSize, setSelectedSize] = useState(''); // Store the selected size
 
     useEffect(() => {
+        console.log('Products:', products); // Log products
         const fetchProductData = () => {
-            // Find the product by ID
             const product = products.find(item => item._id === productId);
+            console.log('Fetched Product:', product); // Log fetched product
             if (product) {
                 setImages(product.image || []); // Ensure it's an array
                 setImage(product.image[0] || ''); // Set the first image or default to empty
@@ -25,6 +27,12 @@ const Product = () => {
 
         fetchProductData(); // Call the function to fetch product data
     }, [products, productId]); // Add dependencies to avoid infinite loops
+
+    useEffect(() => {
+        console.log('Images:', images); // Log images state
+        console.log('Selected Image:', image); // Log selected image
+        console.log('Found Product:', foundProduct); // Log found product
+    }, [images, image, foundProduct]);
 
     return foundProduct ? (
         <div className='paoo'>
@@ -63,7 +71,7 @@ const Product = () => {
                                     />
                                 ))}
                             </div>
-                            <div className='flex items-center pt-1/5 gap-1'>
+                            <div className='flex items-center gap-1'>
                                 {/* Display dull star icon */}
                                 {Array(1).fill().map((_, index) => (
                                     <img 
@@ -74,16 +82,44 @@ const Product = () => {
                                     />
                                 ))}
                             </div>
-                            <p className='pl-2 pt-5/2'>(122)</p>
+                            <p className='pl-2 pt-2'>(122)</p>
                         </div>
                         <p className='mt-5 text-3xl font-medium'>{currency}{foundProduct.price}</p>
-                        <p className='mt-5 text-gray-500 md:w-4/5'>{foundProduct.description}</p> {/* Updated here */}
+                        <p className='mt-5 text-gray-500 md:w-4/5'>{foundProduct.description}</p>
+                        
+                        {/* Select Size Section */}
+                        <div className='flex flex-col gap-4 my-8'>
+                            <p>Select Size:</p>
+                            <div className='flex gap-2'>
+                                {foundProduct.sizes && foundProduct.sizes.map((size, index) => (
+                                    <button 
+                                        key={index} 
+                                        className={`border rounded px-4 py-2 ${selectedSize === size ? 'bg-blue-500 text-white' : 'bg-white text-black'}`}
+                                        onClick={() => setSelectedSize(size)} // Handle size selection
+                                    >
+                                        {size}
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+                        <button 
+    className="bg-gray-800 text-white font-semibold py-2 px-2 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:bg-blue-700 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-300"
+    onClick={() => console.log('Added to cart!')} // Add your add to cart logic here
+>
+    ADD TO CART
+</button>
+<hr className='mt-8 sm:w-4/5'/>
+<div className='text-sm text-gray-500 mt-5 flex flex-col gap-1'>
+  <p>100% Original product.</p>
+  <p>Cash on delivery is available on this product.</p>
+  <p>Easy returnand exchange policy within 14 days.</p>
+                      </div>
                     </div>
                 </div>
             </div>
         </div>
     ) : (
-        <div className='opacity-0 paoo'>Loading...</div>
+        <div className='opacity-100 paoo'>Loading...</div> // Make it visible for debugging
     );
 };
 
