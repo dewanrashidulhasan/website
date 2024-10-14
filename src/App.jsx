@@ -11,6 +11,7 @@ import PlaceOrder from './pages/PlaceOrder'
 import Orders from './pages/Orders'
 import Navbar from './components/navbar'
 import Footer from './components/Footer'
+import SearchBar from './components/SearchBar'
 
 
 const App = () => {
@@ -19,6 +20,8 @@ const App = () => {
       
       <div className="mb-4">
      <Navbar/>
+     <div className='px-3 sm:px-[5vw] md:px-[4vw] lg:px-[6vw]'>
+     <SearchBar/></div>
      </div>
      {/* <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
      <Home/>
