@@ -13,9 +13,9 @@ const Navbar = () => {
   };
 
   return (
-    <div className='flex nao item-center justify-between py-4 font-medium bg-gray-800 w-full pr-4'>
+    <div className='flex nao item-center justify-between py-4 font-medium bg-gray-800 w-full pl-4 pr-4'>
       <Link to='/home'>
-        <img src={assets.logo} className='w-46 h-10' alt="logo" />
+        <img src={assets.logo} className='w-46 h-8' alt="logo" />
       </Link>
       <ul className='hidden sm:flex gap-5 text-sm text-white'>
         <NavLink to='/home' className='flex flex-col items-center gap-1'>

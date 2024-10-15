@@ -5,11 +5,11 @@ const Footer = () => {
   return (
     <div>
       <div className='flex flex-col sm:grid grid-cols-[3fr_1fr_1fr] gap-20 my-10 mt-40 text-sm bg-gray-800 pt-3 pb-3'>
-        <div className='flex flex-col items-center'>
-          <img className='mb-5 w-40' src={assets.logo} alt=""/>
-          <p className='w-full md:w-2/3 text-white text-center'>
-            Explore the finest collection of men's, women's, and kids' clothing. Fashion, quality, and affordability, all in one place  
-          </p>
+        <div className='flex flex-col items-center pr-72'>
+          <img className='mb-5 h-7 w-32' src={assets.logo} alt=""/>
+          <p className='w-full md:w-2/3 text-white text-center text-animate'>
+      Explore the finest collection of men's, women's, and kids' clothing. Fashion, quality, and affordability, all in one place.
+    </p>
         </div>
         <div className='flex flex-col items-center'>
           <p className='text-xl font-medium text-white mb-5'>COMPANY</p>

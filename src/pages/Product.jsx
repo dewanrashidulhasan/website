@@ -116,6 +116,20 @@ const Product = () => {
                       </div>
                     </div>
                 </div>
+{/* ---------Discription & Review section----------- */}
+
+              <div className='mt-20'>
+                <div className='flex'>
+                   <b className='border px-5 py-3 text-sm'>Description</b>
+                   <p className='border px-5 py-3 text-sm'>Reviews(122)</p>
+                </div>
+                <div className='flex flex-col gap-4 border px-6 py-6 text-sm text-gray-500'>
+                  <p>DEWAN offers stylish, high-quality clothing for men, women, and kids. Discover a perfect blend of tradition and modern trends, ensuring comfort and elegance for every occasion. Elevate your style with DEWAN.</p>
+                  <p>Shop now and discover the latest in fashion trends!</p>
+
+                </div>
+              </div>
+{/* ---------Display related products----------- */}
             </div>
         </div>
     ) : (
