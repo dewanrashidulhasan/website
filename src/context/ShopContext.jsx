@@ -1,5 +1,6 @@
 import React, { createContext, useEffect, useState } from "react";
 import { products } from "../assets/assets";
+import { toast } from "react-toastify";
 
 export const ShopContext = createContext();
 
@@ -11,6 +12,10 @@ const ShopContextProvider = (props) => {
     const [cartItems, setCartItems] = useState({});
 
     const addToCart = async (itemId, size) => { // Fixed typo in function name
+        if (!size) {
+            toast.error('Select Product Size');
+            return;
+        }
 
         let cartData = structuredClone(cartItems);
 
@@ -27,9 +32,17 @@ const ShopContextProvider = (props) => {
         setCartItems(cartData);
     };
 
-    useEffect(() => {
-        console.log(cartItems);
-    }, [cartItems]);
+    const getCartCount = () => { // Fixed typo and changed to a function
+        let totalCount = 0;
+        for (const item in cartItems) {
+            for (const size in cartItems[item]) { // Fixed nested loop
+                if (cartItems[item][size] > 0) {
+                    totalCount += cartItems[item][size]; // Corrected variable names
+                }
+            }
+        }
+        return totalCount;
+    };
 
     const value = {
         products,
@@ -40,7 +53,8 @@ const ShopContextProvider = (props) => {
         showSearch,
         setShowSearch,
         cartItems,
-        addToCart, // Fixed typo in value object
+        addToCart,
+        getCartCount, // Fixed typo in value object
     };
 
     return (

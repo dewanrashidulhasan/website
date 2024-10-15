@@ -5,7 +5,7 @@ import { ShopContext } from '../context/ShopContext';
 
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const { setShowSearch } = useContext(ShopContext); // Context থেকে setShowSearch নেয়া হয়েছে
+  const { setShowSearch , getCartCount } = useContext(ShopContext); // Context থেকে setShowSearch নেয়া হয়েছে
 
   // Dropdown টগল করার ফাংশন
   const toggleDropdown = () => {
@@ -66,7 +66,7 @@ const Navbar = () => {
         <Link to='/cart' className='relative'>
           <img src={assets.cart_icon} className='w-4 min-w-5 pt-1' alt="Cart" />
           <p className='absolute right-[-4px] bottom-[-5px] w-4 h-4 text-center leading-4 bg-red-600 text-white aspect-square rounded-full text-[8px]'>
-            10
+            {getCartCount()}
           </p>
         </Link>
       </div>
