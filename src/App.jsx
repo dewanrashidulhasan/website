@@ -25,9 +25,6 @@ const App = () => {
      <div className='px-3 sm:px-[5vw] md:px-[4vw] lg:px-[6vw]'>
      <SearchBar/></div>
      </div>
-     {/* <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
-     <Home/>
-     </div> */}
      <div className='px-3 sm:px-[5vw] md:px-[4vw] lg:px-[6vw]'>
       <Routes >
        <Route path='/home' element={<Home/>} /> 
@@ -39,8 +36,7 @@ const App = () => {
       <Route path='/login' element={<Login/>} />
       <Route path='/place-order' element={<PlaceOrder/>} />
       <Route path='/orders' element={<Orders/>} />
-
-      </Routes>
+       </Routes>
       </div>
       <Footer/>
     </div>
